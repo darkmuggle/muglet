@@ -1,0 +1,19 @@
+#!/bin/bash -e
+#
+
+# If the 'muglet' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+cat <<EOM
+----> CoreOS Assembler Openshift Builder...
+           Build: ${BUILD_ID}"
+         S3 Path: ${S3_PATH}"
+    Cosa Command: ${COSA_COMMAND}"
+
+          User ID: $(id -u)
+
+EOM
+
+cd /srv
